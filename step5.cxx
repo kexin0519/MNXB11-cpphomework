@@ -11,7 +11,7 @@ int calculatedcheckSum(std::string inputstring) {
     return charSum;
 }
 
-int calculatekey(int charSum, char firstparameter, size_t programNameLength) {
+int calculateKey(int charSum, char firstparameter, size_t programNameLength) {
     int key = (charSum ^ firstparameter * 3) << (programNameLength & 0x1f);
     return key;
 }
@@ -23,10 +23,9 @@ int main(int numbargc, char *grpargv[]) {
     size_t programNameLength{program_name.size()};
     int inputnumber{std::atoi(grpargv[2])};
     int charSum=calculatedcheckSum (grpargv[1]);
-    std::cout << "Calculated Key: " << calculatekey << std::endl;
-    int calculatekey = calculatekey(charSum, firstparameter, programNameLength);
-
-    if (calculatekey== inputnumber) {
+    std::cout << "Calculated Key: " << calculateKey << std::endl;
+    int calculatedKey = calculateKey(charSum, firstparameter, programNameLength);
+    if (calculatedKey== inputnumber) {
       std::cout << "Correct!" << std::endl;
     } else {
       std::cout << "Wrong!" << std::endl;
